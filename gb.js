@@ -41,12 +41,16 @@ async function tutorial() {
                         const img = item.querySelector("img") && item.querySelector("img").getAttribute("src");
                         const url = item.querySelector(".a-link-normal") && item.querySelector(".a-link-normal").getAttribute("href");
                         const title = item.querySelector(".a-link-normal") && item.querySelector(".a-link-normal").getAttribute("title");
-                        const price = 0;
+                        const price = item.querySelector(".a-price span") && item.querySelector(".a-price span").innerHTML;
+                        const oldPrice = item.querySelector(".octopus-widget-strike-through-price") && item.querySelector("span.octopus-widget-strike-through-price").textContent
+                        const dealPercentage = item.querySelector(".oct-deal-badge-label") && item.querySelector(".oct-deal-badge-label").textContent
                         products.push({
                             img: img,
                             url: url,
                             title: title,
-                            price: price
+                            price: price,
+                            oldPrice: oldPrice,
+                            dealPercentage: dealPercentage
                         })
                     })
                     return products;
