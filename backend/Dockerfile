@@ -1,16 +1,8 @@
-# backend/Dockerfile
+# Use an official Node.js runtime as a base image
 FROM node:14
 
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
+WORKDIR /apps/goldbox-server
+COPY package.json /apps/goldbox-server
 RUN npm install
-
-COPY . .
-
-RUN npm run build
-
-EXPOSE 4000
-
-CMD [ "node", "dist/index.js" ]
+COPY . /apps/goldbox-server
+CMD ["npm", "start"]

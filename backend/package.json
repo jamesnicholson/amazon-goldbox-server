@@ -1,29 +1,43 @@
 {
-  "name": "amazon-goldbox-server",
+  "name": "my-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A Node.js, TypeScript, and GraphQL project",
+  "main": "index.tsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node build/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesnicholson/amazon-goldbox-server.git"
+  },
+  "type": "module",
+  "keywords": [
+    "Node.js",
+    "TypeScript",
+    "GraphQL"
+  ],
+  "author": "Your Name <your.email@example.com>",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesnicholson/amazon-goldbox-server/issues"
+  },
+  "homepage": "https://github.com/jamesnicholson/amazon-goldbox-server#readme",
   "dependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^20.2.5",
-    "apollo-server-express": "^3.12.0",
-    "cheerio": "^1.0.0-rc.12",
-    "express": "^4.18.2",
-    "graphql": "^16.6.0",
-    "mysql2": "^3.3.3",
-    "puppeteer": "^20.1.1",
-    "sequelize": "^6.32.0",
-    "ts-node": "^10.9.1",
-    "unirest": "^0.6.0"
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.5.1",
+    "sequelize": "^6.6.5",
+    "mysql2": "^2.3.0"
   },
   "devDependencies": {
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.1.3"
+    "@types/express": "^4.17.12",
+    "@types/graphql": "^14.5.0",
+    "@types/node": "^16.3.3",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.3.5"
   }
 }
