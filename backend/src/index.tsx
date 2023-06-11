@@ -1,36 +1,20 @@
-const { EbayAPI } = require('./data-source')
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const express = require('express');
-const expressJwt = require('express-jwt');
-const jwt = require('jsonwebtoken');
-const fs = require('fs');
-const { ApolloServer, gql } = require('apollo-server-express')
-const port = 9002;
-const jwtSecret = Buffer.from('Zn8Q5tyZ/G1MHltc4F/gTkVJMlrbKiZt', 'base64');
-const app = express();
+import 'reflect-metadata';
+import { ApolloServer } from 'apollo-server';
+import { buildSchema } from 'type-graphql';
+import { ProductResolver } from './resolvers/Product';
+async function main() {
 
-app.use(cors(), bodyParser.json(), expressJwt({
-    secret: jwtSecret,
-    credentialsRequired: false
-}));
-const typeDefs = gql(fs.readFileSync('./schema.graphql', { encoding: 'utf8' }))
-const resolvers = require('./resolvers')
-const context = ({ req }) => ({ user: req.user && null })
+    const schema = await buildSchema({
+        resolvers: [ProductResolver],
+        validate: false,
+    });
 
-const apolloServer = new ApolloServer({
-    typeDefs,
-    resolvers,
-    formatError: (err) => {
-        console.log("formatError : ", err)
-        return err;
-    },
-    dataSources: () => {
-        return {
-            EbayAPI: new EbayAPI()
-        }
-    }
-})
+    const server = new ApolloServer({
+        schema,
+        context: ({ req, res }: any) => ({ req, res })
+    });
 
-apolloServer.applyMiddleware({ app, path: '/graphql' })
-app.listen(port, () => console.info(`Server started on port ${port}`));
+    await server.listen(4000);
+    console.log("Server has started!");
+}
+main().catch((err) => console.error(err));
