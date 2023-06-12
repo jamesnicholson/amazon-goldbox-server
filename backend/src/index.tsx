@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server';
 import { buildSchema } from 'type-graphql';
 import { ProductResolver } from './resolvers/Product';
+import { database } from './config/database';
 async function main() {
 
     const schema = await buildSchema({
@@ -13,7 +14,10 @@ async function main() {
         schema,
         context: ({ req, res }: any) => ({ req, res })
     });
-
+    database.sync({ force: true })
+        .then(() => {
+            console.log(`Database & tables created!`)
+        });
     await server.listen(4000);
     console.log("Server has started!");
 }

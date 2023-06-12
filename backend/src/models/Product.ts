@@ -15,6 +15,8 @@ export class ProductModel extends Model {
     public readonly updatedAt!: Date;
 }
 
+
+
 ProductModel.init(
     {
         id: {
