@@ -3,7 +3,7 @@ import { Field, ID, ObjectType } from "type-graphql";
 @ObjectType()
 export class Product {
     @Field(() => ID)
-    id!: string;
+    id?: string;
 
     @Field()
     img!: string;
@@ -21,5 +21,5 @@ export class Product {
     oldPrice!: string;
 
     @Field()
-    domain!: string;
+    productId!: string;
 }
