@@ -11,10 +11,10 @@ services:
     environment:
       - DB_HOST=db
 
-  frontend:
-    build: ./frontend
-    ports:
-      - "8080:80"
+ # frontend:
+ #   build: ./frontend
+ #   ports:
+ #     - "8080:80"
 
   db:
     image: mysql:5.7
