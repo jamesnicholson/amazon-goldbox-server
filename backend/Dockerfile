@@ -8,9 +8,9 @@ RUN npm install -g typescript
 COPY . /apps/goldbox-server
 
 # Copy custom virtual host file
-COPY ./src/config/deals-virtualhost.conf /usr/local/apache2/conf/sites-available/
+COPY ./src/config/deals-virtualhost.conf  /etc/apache2/sites-available/
 
 # Enable the virtual host (this depends on your specific Apache setup)
-RUN echo "Include /usr/local/apache2/conf/sites-available/deals-virtualhost.conf" \
-    >> /usr/local/apache2/conf/httpd.conf
+RUN echo "Include  /etc/apache2/sites-available/deals-virtualhost.conf" \
+    >>  /etc/apache2/apache2.conf
 CMD ["npm", "start"]
