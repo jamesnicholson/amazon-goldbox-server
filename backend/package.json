@@ -25,15 +25,20 @@
   },
   "homepage": "https://github.com/jamesnicholson/amazon-goldbox-server#readme",
   "dependencies": {
-    "@apollo/server": "^4.7.3",
-    "apollo-server": "^3.12.0",
+    "@apollo/server": "^4.10.1",
+    "apollo-server": "^3.13.0",
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "graphql": "^16.6.0",
     "mysql2": "^3.3.4",
     "puppeteer": "^20.6.0",
     "reflect-metadata": "^0.1.13",
-    "sequelize": "^6.32.0",
+    "sequelize": "^6.37.1",
     "type-graphql": "^2.0.0-beta.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
