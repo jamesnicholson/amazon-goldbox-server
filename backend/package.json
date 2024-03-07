@@ -5,9 +5,8 @@
   "main": "index.tsx",
   "scripts": {
     "build": "npx tsc",
-    "start": "npx tsc && node build/index.js",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "goldbox": "node build/services/gb.js"
+    "start": "nodemon src/index.ts",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
   },
   "repository": {
     "type": "git",
@@ -31,7 +30,7 @@
     "express": "^4.18.2",
     "graphql": "^16.6.0",
     "mysql2": "^3.3.4",
-    "puppeteer": "^20.6.0",
+    "puppeteer": "^22.4.0",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.37.1",
     "type-graphql": "^2.0.0-beta.2"
